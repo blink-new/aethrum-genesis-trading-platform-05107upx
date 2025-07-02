@@ -1,0 +1,314 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 2%;
+    --foreground: 0 0% 95%;
+    --card: 210 40% 4%;
+    --card-foreground: 0 0% 95%;
+    --popover: 210 40% 4%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 210 40% 2%;
+    --secondary: 210 40% 8%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 210 40% 8%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 210 40% 2%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 40% 12%;
+    --input: 210 40% 12%;
+    --ring: 195 100% 50%;
+    --radius: 0.75rem;
+    --chart-1: 195 100% 50%;
+    --chart-2: 261 83% 70%;
+    --chart-3: 147 100% 55%;
+    --chart-4: 30 100% 52%;
+    --chart-5: 349 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-quantum-deep text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* AETHRUM Quantum Effects */
+  .quantum-glow {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+  
+  .quantum-glow-intense {
+    @apply shadow-xl;
+    box-shadow: 
+      0 0 30px rgba(0, 217, 255, 0.5),
+      0 0 60px rgba(0, 217, 255, 0.3),
+      0 0 90px rgba(0, 217, 255, 0.1);
+  }
+  
+  .neural-border {
+    background: linear-gradient(45deg, transparent, rgba(0, 217, 255, 0.3), transparent);
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+  
+  .glass-morphism {
+    background: rgba(26, 26, 46, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+  }
+  
+  .neural-grid {
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .quantum-text {
+    background: linear-gradient(45deg, #00D9FF, #8B5CF6, #00FF88);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: quantum-flow 3s ease-in-out infinite;
+  }
+  
+  .pulse-live {
+    animation: pulse-live 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+  
+  .hologram-text {
+    text-shadow: 
+      0 0 5px rgba(0, 217, 255, 0.8),
+      0 0 10px rgba(0, 217, 255, 0.6),
+      0 0 15px rgba(0, 217, 255, 0.4),
+      0 0 20px rgba(0, 217, 255, 0.2);
+  }
+  
+  .neural-connection {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .neural-connection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 255, 0.3),
+      transparent
+    );
+    animation: neural-scan 3s infinite;
+  }
+  
+  .quantum-button {
+    @apply glass-morphism quantum-glow;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .quantum-button:hover {
+    @apply quantum-glow-intense;
+    transform: translateY(-2px);
+  }
+  
+  .quantum-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  .quantum-button:hover::before {
+    left: 100%;
+  }
+  
+  .status-indicator {
+    @apply inline-block w-2 h-2 rounded-full;
+    animation: pulse-live 2s infinite;
+  }
+  
+  .status-active {
+    @apply bg-quantum-green;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+  }
+  
+  .status-inactive {
+    @apply bg-gray-500;
+  }
+  
+  .status-warning {
+    @apply bg-quantum-orange;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.6);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 217, 255, 0.3) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 217, 255, 0.3);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 217, 255, 0.5);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes quantum-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes neural-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
+  }
+}
+
+/* Global Quantum Background Effect */
+.quantum-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Module Tab Styles */
+.module-tab {
+  @apply glass-morphism border border-quantum-blue/20 hover:border-quantum-blue/40 transition-all duration-300;
+}
+
+.module-tab.active {
+  @apply quantum-glow border-quantum-blue/60;
+  background: rgba(0, 217, 255, 0.1);
+}
+
+/* Chart Container */
+.chart-container {
+  @apply glass-morphism neural-border;
+  background: 
+    linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(10, 10, 15, 0.9) 100%),
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300D9FF' fill-opacity='0.03'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Live Data Ticker */
+.data-ticker {
+  @apply font-mono text-xs;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Module Grid Layout */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Responsive Breakpoints for AETHRUM */
+@media (max-width: 768px) {
+  .quantum-glow-intense {
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+  }
+  
+  .hologram-text {
+    text-shadow: 
+      0 0 3px rgba(0, 217, 255, 0.8),
+      0 0 6px rgba(0, 217, 255, 0.6);
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .quantum-text {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
